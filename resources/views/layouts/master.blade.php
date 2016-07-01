@@ -16,16 +16,6 @@
         <title>Pappy - @yield('title')</title>
 
         {{-- Header Section -- }}
-            <!-- Styles -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/fontawesome.css">
-    <link rel="stylesheet" href="css/weather.css">
-    <link rel="stylesheet" href="css/colors.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-personal.css">
-     
-
 
         @section('headerAssets')
             <!-- Bootstrap Core CSS -->
@@ -70,9 +60,16 @@
                 <!-- /.container-fluid -->
             </div>
         </div>
-        
+          
          @section('footerAssets')
-            {!! Html::script('assets/js/app.js') !!}
+            {!! Html::script('assets/js/jqueryscript.min.js') !!}
+            {!! Html::script('assets/js/jqueryuiscript.min.js') !!}
+            {!! Html::script('assets/js/easing.min.js') !!}
+            {!! Html::script('assets/js/smoothscroll.min.js') !!}
+            {!! Html::script('assets/js/magnific.min.js') !!}
+            {!! Html::script('assets/js/fitvids.min.js') !!}
+            {!! Html::script('assets/js/viewportchecker.min.js') !!}
+            {!! Html::script('assets/js/init.js') !!}
          @show
     
     </body>

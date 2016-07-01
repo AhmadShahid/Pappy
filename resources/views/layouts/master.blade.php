@@ -15,7 +15,7 @@
         <meta http-equiv="pragma" content="no-cache" />
         <title>Pappy - @yield('title')</title>
 
-        {{-- Header Section -- }}
+        {{-- Header Assets Section --}}
 
         @section('headerAssets')
             <!-- Bootstrap Core CSS -->
@@ -34,33 +34,58 @@
 
         @show
 
+        {{-- Header Assets Section --}}
+
     </head>
-
+    <!-- Body -->
     <body>
+        <!-- Page Wrapper -->
+        <div id="wrapper" class="wide">
+            {{-- header --}}
+            <!-- Header -->
+            <header id="header" role="banner">    
 
-        <div id="wrapper">
+                {{-- Navigation Section --}}
 
-            {{-- Navigation Section -- }}
+                @include("layouts/navigation")
 
-            @include("layouts/navigation")
-
-            <!-- Page Content -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">@yield('title')</h1>
-                        </div>
+                {{-- End Navigation Section --}}
+                <!-- Header meta -->
+                <div class="header_meta">
+                    <!-- Header meta  Container -->
+                    <div class="container">
+                        <!-- Weather forecast -->
+                        <div class="weather_forecast">
+                            <i class="wi wi-day-lightning"></i>
+                            <span class="city">London, England</span>
+                            <span class="temp">18°C</span>
+                        </div><!-- End Weather forecast -->
                     </div>
-                    <!-- /.row -->
-                    {{-- Content Section -- }}
-                     @yield('content')
+                     <!-- End Header meta  Container -->
+                </div>
+                <!-- End  Header meta -->
+            </header>
+            <!-- End Header -->
+            {{-- End header --}}
+
+            {{-- Content Section --}}
+            <!-- Section main-content -->
+            <section id="main-content">
+                <!-- main-content container -->
+                <div class="container">
+
+                    @yield('content')
 
                 </div>
-                <!-- /.container-fluid -->
-            </div>
+                 <!-- End main-content container -->
+            </section>
+            <!-- End Section main-content -->
+            {{-- End Content Section --}}
+
         </div>
-          
+        <!-- End Page Wrapper -->
+
+        {{-- Footer Assets Section --}}
          @section('footerAssets')
             {!! Html::script('assets/js/jqueryscript.min.js') !!}
             {!! Html::script('assets/js/jqueryuiscript.min.js') !!}
@@ -71,7 +96,7 @@
             {!! Html::script('assets/js/viewportchecker.min.js') !!}
             {!! Html::script('assets/js/init.js') !!}
          @show
-    
+        {{-- Footer Assets Section --}}
     </body>
-
+    <!-- End Body -->
 </html>

@@ -64,7 +64,7 @@
                             <span class="top_navigation_toggle"><i class="fa fa-reorder"></i></span>
                             <ul class="menu">
                                 <li><a href="index.html">My Info</a></li>
-                                <li><a href="{{url('auth/logout')}}">Sign out</a></li>
+                                <li><a href="{{ url('/logout') }}">Sign out</a></li>
                             </ul>
                         </nav><!-- End Top menu -->
                     </div>
@@ -88,15 +88,17 @@
             <!-- End Section main-content -->
             {{-- End Content Section --}}
 
-            {{-- Copyright Section --}}
-            <!-- Copyright -->
-            <div id="copyright" role="contentinfo">
+            {{-- Footer --}}
+            <!-- Footer -->
+            <footer id="footer">
                 <div class="container">
-                    <p>&copy; 2015 TrendyBlog Template. All rights reserved. <a href="http://themeforest.net/user/different-themes/portfolio?ref=CodeoStudio" target="_blank">CodeoStudio</a></p>
+                    <div class="row">
+                        <p>&copy; 2015 TrendyBlog Template. All rights reserved. <a href="" target="_blank">CodeoStudio</a></p>
+                    </div>
                 </div>
-            </div>
-            {{-- End Copyright Section --}}
-            <!-- End Copyright -->
+            </footer>
+            <!-- End Footer -->
+            {{-- End Footer --}}
 
 
         </div>

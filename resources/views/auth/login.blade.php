@@ -4,10 +4,12 @@
     <div class="row">
 
         <article class="sheet--sign-in recordable--balloon" data-behavior="sign_in_notice_container">
-        
-            <div class="flash-notice" data-behavior="flash_notice">
-                <div class="flash-notice__content">Sorry, we don’t recognize that email or username.</div>
-            </div>
+            
+            @if($errors->any())
+                <div class="flash-notice" data-behavior="flash_notice">
+                    <div class="flash-notice__content">Sorry, we don’t recognize that email or username.</div>
+                </div>
+            @endif
 
             <header class="push--bottom centered">
                 <h3 class="flush--top push_half--bottom">Happy <time data-localized="true">Thursday</time>!</h3>

@@ -54,14 +54,6 @@
                             <span class="city">London, England</span>
                             <span class="temp">18°C</span>
                         </div><!-- End Weather forecast -->
-                        <!-- Top menu -->
-                        <nav class="top_navigation" role="navigation">
-                            <span class="top_navigation_toggle"><i class="fa fa-reorder"></i></span>
-                            <ul class="menu">
-                                <li><a href="index.html">My Info</a></li>
-                                <li><a href="index.html">Sign out</a></li>
-                            </ul>
-                        </nav><!-- End Top menu -->
                     </div>
                 </div>
                 <!-- End  Header meta -->
@@ -83,6 +75,17 @@
             <!-- End Section main-content -->
             {{-- End Content Section --}}
 
+            {{-- Footer --}}
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="container">
+                    <div class="row">
+                        <p>&copy; 2015 TrendyBlog Template. All rights reserved. <a href="" target="_blank">CodeoStudio</a></p>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+            {{-- End Footer --}}
         </div>
         <!-- End Page Wrapper -->
 

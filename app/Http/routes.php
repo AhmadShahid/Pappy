@@ -19,7 +19,10 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => array('auth'), 'prefix'=>'admin'], function () {
+Route::group(['middleware' => array('auth')], function () {
     // All my routes that needs a logged in user
     Route::get('/dashboard', array('as'=>'dashboard', 'uses'=>'DashboardController@index'));
+
+	Route::resource('projects', 'ProjectController');
+
 });

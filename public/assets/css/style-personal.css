@@ -198,7 +198,7 @@ table {
 }
 input[type=checkbox] {display:none;}
 
-span {
+/*span {
     background-color:#373740;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -221,7 +221,7 @@ span {
     -ms-transition:background-color 150ms ease-in;
     -o-transition:background-color 150ms ease-in;
     transition:background-color 150ms ease-in;
-}
+}*/
 
 span:hover {
     background-color:#c0392b;
@@ -386,6 +386,55 @@ input[type="submit"] {
     font-family: inherit;
     line-height: 1.5;
 }
+
+/*  Left Navigation Menu css */
+
+.sidebar {
+    z-index: 1;
+    position: absolute !important;
+    width: 200px !important;
+    margin-top: 46px;
+}
+.navbar-default {
+    background-color: white;
+    border-color: #e7e7e7;
+}
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+}
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.sidebar .sidebar-search {
+    padding: 15px;
+}
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.sidebar ul li a.active {
+    background-color: #eee;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+/* End of left navigation menu */
 
 
 /* end login screen css */

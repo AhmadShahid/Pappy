@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => array('auth'), 'prefix'=>'admin'], function () {
+    // All my routes that needs a logged in user
+    Route::get('/dashboard', array('as'=>'dashboard', 'uses'=>'DashboardController@index'));
+});

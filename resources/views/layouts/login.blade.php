@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     
@@ -45,10 +44,6 @@
             <!-- Header -->
             <header id="header" role="banner">    
 
-                {{-- Navigation Section --}}
-
-                @include("layouts/navigation")
-
                 {{-- End Navigation Section --}}
                 <!-- Header meta -->
                 <div class="header_meta">
@@ -64,7 +59,7 @@
                             <span class="top_navigation_toggle"><i class="fa fa-reorder"></i></span>
                             <ul class="menu">
                                 <li><a href="index.html">My Info</a></li>
-                                <li><a href="{{url('auth/logout')}}">Sign out</a></li>
+                                <li><a href="index.html">Sign out</a></li>
                             </ul>
                         </nav><!-- End Top menu -->
                     </div>
@@ -88,30 +83,12 @@
             <!-- End Section main-content -->
             {{-- End Content Section --}}
 
-            {{-- Copyright Section --}}
-            <!-- Copyright -->
-            <div id="copyright" role="contentinfo">
-                <div class="container">
-                    <p>&copy; 2015 TrendyBlog Template. All rights reserved. <a href="http://themeforest.net/user/different-themes/portfolio?ref=CodeoStudio" target="_blank">CodeoStudio</a></p>
-                </div>
-            </div>
-            {{-- End Copyright Section --}}
-            <!-- End Copyright -->
-
-
         </div>
         <!-- End Page Wrapper -->
 
         {{-- Footer Assets Section --}}
          @section('footerAssets')
             {!! HTML::script('assets/js/jqueryscript.min.js') !!}
-            {!! HTML::script('assets/js/jqueryuiscript.min.js') !!}
-            {!! HTML::script('assets/js/easing.min.js') !!}
-            {!! HTML::script('assets/js/smoothscroll.min.js') !!}
-            {!! HTML::script('assets/js/magnific.min.js') !!}
-            {!! HTML::script('assets/js/fitvids.min.js') !!}
-            {!! HTML::script('assets/js/viewportchecker.min.js') !!}
-            {!! HTML::script('assets/js/init.js') !!}
          @show
         {{-- Footer Assets Section --}}
     </body>

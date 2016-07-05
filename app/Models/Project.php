@@ -30,6 +30,6 @@ class Project extends BaseModel
 
         $toTake = config('setting.pagination');  
 
-        return $results->sortBy()->paginate( $toTake );
+        return $results->paginate( $toTake );
     }
 }

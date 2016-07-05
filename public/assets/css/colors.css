@@ -41,7 +41,7 @@ ul.products li.product a.btn:hover,
 .layout_post_2 .item_thumb .thumb_icon a,
 .list_posts .post .item_thumb .thumb_icon a,
 .wide_slider .bx-wrapper .bx-controls-direction a:hover {
-    background-color: #f85050
+    /*background-color: #f85050*/
 }
 
 /*------------------------------------------------------------------------------

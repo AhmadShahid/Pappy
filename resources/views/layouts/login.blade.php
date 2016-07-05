@@ -63,9 +63,9 @@
 
             {{-- Content Section --}}
             <!-- Section main-content -->
-            <section id="main-content">
+            <section id="login-content">
                 <!-- main-content container -->
-                <div class="container">
+                <div class="login-container">
 
                     @yield('content')
 

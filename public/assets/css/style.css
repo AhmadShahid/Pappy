@@ -3697,3 +3697,12 @@ span.format {
 #copyright p {
     margin: 0
 }
+
+.login-container {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 220px;
+    width: 1120px;
+}

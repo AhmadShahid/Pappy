@@ -12,7 +12,7 @@
             @endif
 
             <header class="push--bottom centered">
-                <h3 class="flush--top push_half--bottom">Happy <time data-localized="true">Thursday</time>!</h3>
+                <h3 class="flush--top push_half--bottom">Happy <time data-localized="true"> {!! date('l') !!}</time>!</h3>
 
                 <p class="flush">
                     Just enter your email address or username and we’ll get you right into Basecamp.

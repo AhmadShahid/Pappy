@@ -5,9 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Project;
+use App\Contracts\ProjectListener;
+use App\Services\ProjectService;
+use Illuminate\Support\MessageBag;
 
-class ProjectController extends Controller
+class ProjectController extends BaseController
 {
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Project Controller
+    | Houses all the functionality of project
+    |--------------------------------------------------------------------------
+    */
+    
+    private $_project;
+    private $_project_service;
+
+    public function __construct(Project $project , ProjectService $projectService)
+    {
+        
+        $this->_project = $project;
+        $this->_project_service = $projectService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +38,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index');
+        $projects = $this->_project->showAllProjects( $params=[] );
+        return view('project.index',compact('projects'));
     }
 
     /**
@@ -25,7 +49,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        // create the instances of objects
+        $project = new Project();
+        return view('project.create',compact('project'));
     }
 
     /**
@@ -36,7 +62,8 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->only('title','description');
+        return $this->_project_service->store( $inputs, $this );
     }
 
     /**
@@ -58,7 +85,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = $this->_project_service->findProjectByID( $id );
+        return view('project.create',compact('project','id'));
     }
 
     /**
@@ -70,7 +98,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->only('title','description');
+        return $this->_project_service->store( $inputs, $this ,$id);
     }
 
     /**
@@ -83,4 +112,5 @@ class ProjectController extends Controller
     {
         //
     }
+
 }

@@ -436,6 +436,13 @@ input[type="submit"] {
 }
 /* End of left navigation menu */
 
+.form-group {
+    margin-bottom: 30px;
+}
+
+.btn-pad {
+    padding: 12px 25px;
+}
 
 /* end login screen css */
 

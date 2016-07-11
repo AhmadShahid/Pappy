@@ -2,7 +2,10 @@
 
 @section('content')
 	<div class="row">
-		<a class="btn btn_blue alignright" href="{{route('projects.create')}}"><i class="fa fa-plus"></i> Add Project</a>
+		<div class="alignright">
+			<a class="btn btn_blue" href="{{route('projects.create')}}"><i class="fa fa-plus"></i> Add Project</a>
+			<a href="{{route('invite_users')}}" class="btn btn_blue"><i class="fa fa-share"></i>Invite Users</a>
+		</div>
 	</div>
 	<div class="row">
 	    <div class="head_title"><h2>Projects</h2></div>

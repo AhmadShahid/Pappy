@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use Mail;
 use App\Http\Requests;
 use App\Models\Project;
 use App\Contracts\ProjectListener;
 use App\Services\ProjectService;
 use Illuminate\Support\MessageBag;
+use App\Http\Requests\ProjectRequest;
+use App\Jobs\SendInvitationEmail;
 
 class ProjectController extends BaseController
 {
@@ -60,7 +64,7 @@ class ProjectController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         $inputs = $request->only('title','description');
         return $this->_project_service->store( $inputs, $this );
@@ -96,7 +100,7 @@ class ProjectController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectReqeust $request, $id)
     {
         $inputs = $request->only('title','description');
         return $this->_project_service->store( $inputs, $this ,$id);
@@ -111,6 +115,32 @@ class ProjectController extends BaseController
     public function destroy($id)
     {
         //
+    }
+
+    
+    /**
+     * Send Invitation To Users.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showInvitationScreen(){
+        $project = new Project();
+        return view('project.invite-users',compact('project'));
+    }
+
+    /**
+     * Send Invitation To Users.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function sendInvitationToUsers( Request $request ){
+        ini_set('xdebug.max_nesting_level', 500);
+        //$this->dispatch(new SendInvitationEmail($request));
+        $this->dispatch(new SendInvitationEmail());
+        return "done";
+        return view('project.invite-users',compact('project'));
     }
 
 }

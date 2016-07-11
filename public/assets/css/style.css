@@ -57,6 +57,9 @@
 html {
     font-family: sans-serif
 }
+.txtC {
+    text-align: center;
+}
 body {
     background-image: url(../demo/body/5.png);
     background-color: #fff;
@@ -94,6 +97,10 @@ img {
 }
 iframe {
     width: 100%
+}
+
+.w45p {
+    width: 45% !important;
 }
 
 /*------------------------------------------------------------------------------

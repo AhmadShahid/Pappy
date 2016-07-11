@@ -444,6 +444,104 @@ input[type="submit"] {
     padding: 12px 25px;
 }
 
+/* invite list */
+.person-form-bulk__sticky-header {
+    z-index: 5;
+    background: #fff;
+    top: 39px;
+    padding-top: 1em;
+    margin-top: -1em;
+}
+.person-form-bulk--fixed {
+    margin-top: 0.5em;
+    display: table;
+    width: 100%; 
+    text-align: left;
+}
+.person-form-bulk {
+    font-size: 1.4rem;
+}
+ .person-form-bulk__person {
+    display: table-row;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.person-form-bulk__attribute{ 
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 0.6rem 0.6rem 0;
+}
+.person-form-bulk__label {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 0.6rem 0.6rem 0;
+}
+.person-form-bulk__header, .person-form-bulk__person {
+    display: table-row;
+    width: 100%;
+    background-color: #fff;
+}
+ .person-form-bulk__label {
+    width: 25%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 0.6rem 0.6rem 0;
+}
+.person-form-bulk__label {
+    font-weight: bold;
+    padding-bottom: 0;
+    line-height: 1.1;
+        font-size: 1.6rem;
+}
+.person-form-bulk__person {
+    display: table-row;
+    width: 100%;
+    background-color: #fff;
+}
+
+.person-form-bulk__person .person-form-bulk__label {
+    display: none;
+}
+.person-form-bulk__attribute .person-form-bulk__simulate-disabled-input, .person-form-bulk__attribute input:disabled, .person-form-bulk__label .person-form-bulk__simulate-disabled-input, .person-form-bulk__label input:disabled {
+    -webkit-text-fill-color: #000;
+    -webkit-opacity: 1;
+    color: #000;
+    border: 1px solid #e5e5e5;
+
+}
+.person-form__optional {
+    color: #aa9c84;
+    font-weight: normal;
+}
+.person-form-bulk__sticky-header .person-form-bulk__label {
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+}
+
+.input--text{
+    max-width: 100%;
+    border-radius: 0.4rem;
+    border: 1px solid #bfbfbf;
+    padding: 8px;
+    background-color: #fff;
+    font-family: inherit;
+    font-weight: inherit;
+    -webkit-appearance: none;
+    font-size: 16px;
+}
+
+.person-form-bulk__attribute .person-form-bulk__simulate-disabled-input, .person-form-bulk__label .person-form-bulk__simulate-disabled-input {
+    white-space: nowrap;
+    overflow: hidden;
+        transition: box-shadow 0.15s ease-in-out;
+}
+
+.project-header {
+    padding: 1rem 0;
+}
+
 /* end login screen css */
 
 /* Smartphones (portrait and landscape) ----------- */

@@ -10,7 +10,7 @@
             </div>
 
             @include("layouts/validation-error")
-            <div class="col col_8_of_12">
+            <div class="col @yield('container_class')">
                 
                 @yield('form_content')
             

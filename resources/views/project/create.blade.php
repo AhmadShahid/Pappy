@@ -4,6 +4,8 @@
 
 @section('form_title', isset( $id ) ? 'Edit Project' : 'Add Project'  )
 
+@section('container_class', 'col_8_of_12' )
+
 @section('form_content')
     @if( isset ( $id ) )
         {!! Form::model($project,array('method'=>'put' ,'route' => array('projects.update',$id))) !!}

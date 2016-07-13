@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
-class Project extends BaseModel
+class Organization extends BaseModel
 {
     
 	/**
@@ -13,15 +13,14 @@ class Project extends BaseModel
      *
      * @var string
      */
-    protected $table = 'projects';
-
+    protected $table = 'organizations';
 
     /**
-     * The projects that belong to the users.
+     * Get the users for the Organization.
      */
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('is_joined');
+        return $this->hasMany(User::class);
     }
 
     /**
@@ -30,8 +29,7 @@ class Project extends BaseModel
      * @return array of clients
     */
 
-    public function showAllProjects( $params )
-    {
+    public function showAllOrganizations( $params ){
 
         $results = $this; 
 

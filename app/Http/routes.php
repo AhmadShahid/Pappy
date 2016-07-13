@@ -25,7 +25,7 @@ Route::group(['middleware' => array('auth')], function () {
 
 	Route::resource('projects', 'ProjectController');
 
-	Route::get('invite-users',array('as'=>'invite_users','uses'=>'ProjectController@showInvitationScreen'));
+	Route::get('invite-users/{project_id}',array('as'=>'invite_users','uses'=>'ProjectController@showInvitationScreen'));
 
 	Route::post('invite-users',array('as'=>'invitation_send','uses'=>'ProjectController@sendInvitationToUsers'));
 

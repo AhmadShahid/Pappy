@@ -2,8 +2,10 @@
 
 namespace App\Jobs;
 
+use Illuminate\Http\Request;
 use Mail;
 use App\User;
+use App\Models\Organization;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,15 +16,17 @@ class SendInvitationEmail extends Job implements ShouldQueue
     use InteractsWithQueue, SerializesModels;
 
      protected $user;
+     protected $request;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $request)
     {
         //$this->user = $user;
+        $this->request = $request;
     }
 
     /**
@@ -32,12 +36,26 @@ class SendInvitationEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
-        $user = User::findOrFail(1);
+        $requestObj = $this->request;
+        $records = $requestObj['invite'];
+        //foreach ($records as $key => $record) {
+            
+            $org = new Organization();
+            $org->org_name = $records['organization'];
+            $org->save();
+            $user = new User();
+            $user->name = $records['name'];
+            $user->email = $records['email'];
+            $user->designation = $records['title'];
+            $org->users()->save($user);
 
-        Mail::Queue('auth.emails.send_invitation', ['user' => $user], function ($m) use ($user) {
-            $m->from('shahidahmad527@gmail.com', 'Your Application');
+            $user = User::findOrFail(1);
 
-            $m->to("shahidahmad527@gmail.com", $user->name)->subject('Your Reminder!');
-        });
+            Mail::Queue('auth.emails.send_invitation', ['user' => $records], function ($m) use ($records) {
+                $m->from('shahidahmad527@gmail.com', 'Your Application');
+
+                $m->to("shahidahmad527@gmail.com", "shahid")->subject('Your Reminder!');
+            });
+        //}
     }
 }

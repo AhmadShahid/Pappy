@@ -7,6 +7,10 @@
             <a class=" mr10" title="Edit" href="{{ route('projects.edit',array('id'=>$project->id)) }}" >
             	<i class="fa fa-edit"></i>
             </a>
+
+            <a class=" mr10" title="invite users" href="{{ route('invite_users',array('id'=>$project->id)) }}" >
+              <i class="fa fa-share"></i>
+            </a>
     </td>
 	</tr>
   @endforeach

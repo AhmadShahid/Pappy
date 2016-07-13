@@ -20,6 +20,9 @@
                 <label>Add people one-by-one or</label>
                 <select class="w45p form-control" placeholder="Choose from an organization">
                     <option>Choose from an organization</option>
+                    @foreach($orgs as $key => $org)
+                        <option value="{{$key}}">{{$org}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>   
@@ -39,7 +42,7 @@
             </div> 
                       
             {!! Form::open(array('files' => true, 'route' => 'invitation_send')) !!}
-
+                <input type="hidden" name="project_id" value="{{$project->id}}">
                 <div class="person-form-bulk person-form-bulk--fixed form-group" data-role="user_rows_container">
                     <div class="person-form-bulk__person" data-role="existing_user_row" data-user-id="4781518" data-persisted="">
                         <label class="person-form-bulk__attribute">

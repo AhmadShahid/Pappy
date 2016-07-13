@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use Illuminate\Http\Request;
 use Mail;
+use Auth;
 use App\User;
 use App\Models\Organization;
 use App\Jobs\Job;
@@ -48,13 +49,14 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $user->email = $records['email'];
             $user->designation = $records['title'];
             $org->users()->save($user);
-
+            $records['id'] = $user->id;
+            $records["loggin_username"] = auth()->user()->name;
             $user = User::findOrFail(1);
 
-            Mail::Queue('auth.emails.send_invitation', ['user' => $records], function ($m) use ($records) {
+            Mail::Queue('auth.emails.send_invitation', ['records' => $records], function ($m) use ($records) {
                 $m->from('shahidahmad527@gmail.com', 'Your Application');
 
-                $m->to("shahidahmad527@gmail.com", "shahid")->subject('Your Reminder!');
+                $m->to("shahidahmad527@gmail.com", $records['name'])->subject('Your Reminder!');
             });
         //}
     }

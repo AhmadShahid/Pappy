@@ -40,13 +40,14 @@ class SendInvitationEmail extends Job implements ShouldQueue
         $requestObj = $this->request;
         $records = $requestObj['invite'];
         //foreach ($records as $key => $record) {
-            
+            $records['token'] =  $this->generateToken();
             $org = new Organization();
             $org->org_name = $records['organization'];
             $org->save();
             $user = new User();
             $user->name = $records['name'];
             $user->email = $records['email'];
+            $user->activation_token = $records['token'];
             $user->designation = $records['title'];
             $org->users()->save($user);
             $records['id'] = $user->id;
@@ -59,5 +60,11 @@ class SendInvitationEmail extends Job implements ShouldQueue
                 $m->to("shahidahmad527@gmail.com", $records['name'])->subject('Your Reminder!');
             });
         //}
+    }
+
+
+    private function generateToken(){
+        $length = 78;
+        return $token = bin2hex(random_bytes($length));
     }
 }

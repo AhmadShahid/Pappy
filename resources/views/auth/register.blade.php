@@ -1,82 +1,84 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {!! csrf_field() !!}
+            <article class="sheet--sign-in recordable--balloon" data-behavior="sign_in_notice_container">
+            
+            @if($errors->any())
+                <div class="flash-notice" data-behavior="flash_notice">
+                    <div class="flash-notice__content">Sorry, we don’t recognize that email or username.</div>
+                </div>
+            @endif
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+            <header class="push--bottom centered">
+                <h3 class="flush--top push_half--bottom">Happy <time data-localized="true"> {!! date('l') !!}</time>!</h3>
 
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                <p class="flush">
+                    Join BinaryBrains on Basecamp 3
+                </p>
+                
+            </header>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            {!! Form::model($user,array('method'=>'post','url' => '/register')) !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                {!! csrf_field() !!}
+                <input type="hidden" name="id" value="{{$user->id}}">
+                <section>
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                    <div class="session-fields__attribute">
+                        <label class="session-fields__label" for="login_name">Name</label>
+                        {{ Form::text('name', null, array('class' => 'input--text u-focusable-input session-fields__email')) }}
+
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+
+                    </div>
+
+                    <div class="session-fields__attribute">
+                        <label class="session-fields__label" for="login_email">Email address or username</label>
+                        {{ Form::text('email', null, array('class' => 'form-control')) }}
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                    <div class="session-fields__attribute">
+                        <label class="session-fields__label" for="login_password">Password</label>
+                        <input type="password" class="form-control" class="input--text u-focusable-input session-fields__email"  name="password" value="{{ old('password') }}" id="login_password" required="required" autofocus="autofocus" autocapitalize="off" autocorrect="off" >
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
 
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
+                    <div class="session-fields__attribute">
+                        <label class="session-fields__label" for="login_password">Confirm Password</label>
+                        <input type="password" class="form-control" class="input--text u-focusable-input session-fields__email"  name="password_confirmation" value="{{ old('password_confirmation') }}" id="login_password" required="required" autofocus="autofocus" autocapitalize="off" autocorrect="off" >
+                        
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+                    <input type="submit" name="commit" value="Ok,let's go" id="email-sign-in" class="session-fields__button action_button primary">
+
+                </section>
+
+            </form>
+
+        </article>
     </div>
-</div>
 @endsection

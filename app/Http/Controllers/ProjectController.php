@@ -13,6 +13,7 @@ use App\Services\ProjectService;
 use App\Services\OrganizationService;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\ProjectInvitationRequest;
 use App\Jobs\SendInvitationEmail;
 
 class ProjectController extends BaseController
@@ -126,10 +127,15 @@ class ProjectController extends BaseController
      */
 
     public function showInvitationScreen( $projectID ){
-        $project = $this->_project_service->findProjectByID( $projectID );
+        $currentLoginUser = User::with('organization')->find(auth()->user()->id)->toArray();
+        
+        $project = $this->_project_service->findProjectByIDWithUsers( $projectID );
+        $inviteUsers = $project->users;
+        $inviteUsers->prepend($currentLoginUser);
+
         $orgService = new OrganizationService();
         $orgs = $orgService->getOrgForDropDown(); 
-        return view('project.invite-users',compact('project','orgs'));
+        return view('project.invite-users',compact('project','orgs','inviteUsers'));
     }
 
     /**
@@ -138,7 +144,7 @@ class ProjectController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-    public function sendInvitationToUsers( Request $request ){
+    public function sendInvitationToUsers( ProjectInvitationRequest $request ){
         ini_set('xdebug.max_nesting_level', 500);
         //$this->dispatch(new SendInvitationEmail($request));
         $this->dispatch(new SendInvitationEmail($request->only('invite','project_id')));

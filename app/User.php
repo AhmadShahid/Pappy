@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Project;
+use App\Models\Organization;
 
 class User extends Authenticatable
 {
@@ -31,5 +32,13 @@ class User extends Authenticatable
     public function projects()
     {
         return $this->belongsToMany(Project::class)->withPivot('is_joined');
+    }
+
+    /**
+     * The users that belong to the organization.
+     */
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
     }
 }

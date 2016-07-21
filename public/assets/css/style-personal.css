@@ -542,6 +542,16 @@ input[type="submit"] {
     padding: 1rem 0;
 }
 
+.flash-notice__icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.33em;
+    background: url(/assets/icons/checkmark-green-7653b9ad0d09eabca83155b834e260e2ad05b1dfffa209fd7f035f4c158cc9c6.svg) center center no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+}
+
 /* end login screen css */
 
 /* Smartphones (portrait and landscape) ----------- */

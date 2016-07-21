@@ -44,6 +44,11 @@ class ProjectService
     public function findProjectByID( $id ) {
 
         return $this->_project->find( $id );
+    }
+
+    public function findProjectByIDWithUsers( $id ) {
+
+        return $this->_project->with('users','users.organization')->find( $id );
     } 
 
 }

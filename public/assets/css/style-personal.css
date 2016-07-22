@@ -341,11 +341,11 @@ input[type="submit"] {
 .action_button, .emoji-button {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    border-color: rgba(0,0,0,0.15);
+    border-color: #dff0d8;
     border-bottom-width: 2px;
     text-decoration: none;
     font-weight: bold;
-    color: #000;
+    color: #d6e9c6;
     display: inline-block;
     line-height: inherit;
     white-space: normal;

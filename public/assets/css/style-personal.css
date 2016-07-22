@@ -560,7 +560,7 @@ input[type="submit"] {
     -moz-animation: scale-fade-in 0.2s linear;
     -o-animation: scale-fade-in 0.2s linear;
     animation: scale-fade-in 0.2s linear;
-    text-align: center;
+    text-align: left;
     position: absolute;
     top: -12px;
     left: 0;
@@ -568,7 +568,7 @@ input[type="submit"] {
     z-index: 10;
 }
 .flash-notice--error .flash-notice__content {
-    display: inline-block;
+    display: block;
     padding: 0.33em 1em;
     border-radius: 10px;
     background-color: #f2dede;
@@ -577,6 +577,8 @@ input[type="submit"] {
     font-weight: bold;
     font-family: inherit;
     line-height: 1.5;
+    width: 50%;
+    margin: auto;
 }
 
 /* end login screen css */

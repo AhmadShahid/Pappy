@@ -1,6 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
+@if ( \Session::has('message') )
+<div class="row">
+    <div class="flash-notice success" data-behavior="flash_notice">
+        <div class="flash-notice__content"><span class="flash-notice__icon"></span> 
+            {{ \Session::get('message') }}
+        </div>
+    </div>
+</div>
+@endif
+
     <div class="dashboard-container">
         <div class="row">
             <section class="content-header">

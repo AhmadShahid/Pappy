@@ -7,13 +7,6 @@
 @section('container_class', 'col_12_of_12' )
 
 @section('form_content')
-    <div class="row">
-        @if($errors->any())
-                <div class="flash-notice" data-behavior="flash_notice">
-                    <div class="flash-notice__content"><span class="flash-notice__icon"></span> Make sure you’ve provided a name , email and organization for all new people.</div>
-                </div>
-        @endif
-    </div>
 
     <div class="row">
         <div class="project-header txtC">

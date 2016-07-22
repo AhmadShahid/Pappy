@@ -15,6 +15,7 @@ use Illuminate\Support\MessageBag;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\ProjectInvitationRequest;
 use App\Jobs\SendInvitationEmail;
+use Session;
 
 class ProjectController extends BaseController
 {
@@ -149,8 +150,8 @@ class ProjectController extends BaseController
         ini_set('xdebug.max_nesting_level', 500);
         //$this->dispatch(new SendInvitationEmail($request));
         $this->dispatch(new SendInvitationEmail($request->only('invite','project_id','remove_user')));
-        return "done";
-        return view('project.invite-users',compact('project'));
+        Session::flash('message', 'Invitation Send Successfully!');
+        return redirect('dashboard')->withInput();
     }
 
 }

@@ -41,6 +41,8 @@
     
     $(document).ready(function(){
 
+        setTimeout(function(){$('.success').slideUp()}, 1500);
+
         // Sticky menu
         //$("#header_main.sticky", "#header").wrap("<div class='header_main-parent'></div>").attr("rel", $("#header_main.sticky", "#header").offset().top).parent().height($("#header_main.sticky", "#header").height());
 

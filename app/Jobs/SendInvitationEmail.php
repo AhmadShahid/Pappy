@@ -7,6 +7,7 @@ use Mail;
 use Auth;
 use App\User;
 use App\Models\Organization;
+use App\Models\Project;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -54,8 +55,8 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $userService->deleteUserByID( $value );
         }
 
-        //$projectService = new ProjectService();
-        //$project = $projectService->findProjectByID($projectId);
+        $projectService = new ProjectService( new Project() );
+        $project = $projectService->findProjectByID($projectId);
 
         foreach ($request as $key => $records) {
             $records['token'] =  $this->generateToken();
@@ -71,12 +72,13 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $user->projects()->sync([$projectId => ['is_joined' => true]]);
             $records['id'] = $user->id;
             $records["loggin_username"] = auth()->user()->name;
+            $records["basecamp"] = $project->title;
             $user = User::findOrFail(1);
 
             Mail::Queue('auth.emails.send_invitation', ['records' => $records], function ($m) use ($records) {
                 $m->from('shahidahmad527@gmail.com', 'Your Application');
 
-                $m->to("shahidahmad527@gmail.com", $records['name'])->subject('Your Reminder!');
+                $m->to($records['email'], $records['name'])->subject('Your Reminder!');
             });
         }
     }

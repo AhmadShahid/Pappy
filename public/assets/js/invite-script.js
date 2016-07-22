@@ -30,11 +30,11 @@ var InviteUser = InviteUser||{};
 			e.preventDefault();
 			var length = parseInt($(".clone-html").length + 1) ;
 			var clone_html =  $(".clone-html").last().clone();
-			$(clone_html).find('.name').attr('name','invite['+length+'][name]').attr('value','');
-			$(clone_html).find('.id').attr('name','invite['+length+'][id]').attr('value','');
-			$(clone_html).find('.email').attr('name','invite['+length+'][email]').attr('value','');
-			$(clone_html).find('.title').attr('name','invite['+length+'][title]').attr('value','');
-			$(clone_html).find('.organization').attr('name','invite['+length+'][organization]').attr('value','');
+			$(clone_html).find('.name').attr('name','invite['+length+'][name]').attr('value','').removeAttr('readonly');
+			$(clone_html).find('.id').attr('name','invite['+length+'][id]').attr('value','').removeAttr('readonly');
+			$(clone_html).find('.email').attr('name','invite['+length+'][email]').attr('value','').removeAttr('readonly');
+			$(clone_html).find('.title').attr('name','invite['+length+'][title]').attr('value','').removeAttr('readonly');
+			$(clone_html).find('.organization').attr('name','invite['+length+'][organization]').attr('value','').removeAttr('readonly');
 			setting.append_to.append(clone_html);
 		});
 

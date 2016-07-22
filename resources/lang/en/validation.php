@@ -95,6 +95,17 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'invite.*.name' => [
+            'required' => 'Make sure you’ve provided a name for all new people.',
+        ],
+        'invite.*.email' => [
+            'required' => 'Make sure you’ve provided a email for all new people.',
+        ],
+        
+        'invite.*.organization' => [
+            'required' => 'Make sure you’ve provided a organization for all new people.',
+        ],
+
     ],
 
     /*

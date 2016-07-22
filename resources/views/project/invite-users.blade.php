@@ -56,21 +56,21 @@
                     @if(isset($inviteUsers) && count($inviteUsers) > 0 )
                         @foreach($inviteUsers as $key => $user)
                             <div class="person-form-bulk__person clone-html" data-role="existing_user_row" data-user-id="4781518" data-persisted="">
-                                <input type="hidden" name="invite[{{$key}}][id]" id="" value="{{$user['id']}}" class="person-form__field input--text" >
+                                <input type="hidden" name="invite[{{$key}}][id]" id="" value="{{$user['id']}}" class="person-form__field id input--text" >
                                 <label class="person-form-bulk__attribute">
-                                    <input type="text" readonly="readonly" name="invite[{{$key}}][name]" id="" value="{{$user['name']}}" class="person-form__field input--text" >
+                                    <input type="text" readonly="readonly" name="invite[{{$key}}][name]" id="" value="{{$user['name']}}" class=" name person-form__field  input--text" >
                                 </label>
 
                                   <label class="person-form-bulk__attribute">
-                                    <input type="email" readonly="readonly" id="" name="invite[{{$key}}][email]" value="{{$user['email']}}" class="person-form__field input--text" pattern="^\S+@\S+\.[A-Za-z0-9-]{2,23}$">
+                                    <input type="email" readonly="readonly" id="" name="invite[{{$key}}][email]" value="{{$user['email']}}" class="email person-form__field input--text" pattern="^\S+@\S+\.[A-Za-z0-9-]{2,23}$">
                                   </label>
 
                                   <label class="person-form-bulk__attribute">
-                                    <input type="text" readonly="readonly" id="" value="" name="invite[{{$key}}][title]" class="person-form__field input--text" value="{{$user['designation']}}">
+                                    <input type="text" readonly="readonly" id="" value="" name="invite[{{$key}}][title]" class="title  person-form__field input--text" value="{{$user['designation']}}">
                                   </label>
 
                                   <label class="person-form-bulk__attribute person-form-bulk__attribute--company">
-                                    <input type="text" readonly="readonly" id="ss" value="{{ $user['organization']['org_name'] }}" name="invite[{{$key}}][organization]" class="person-form__field person_orgs input--text" >
+                                    <input type="text" readonly="readonly" id="ss" value="{{ $user['organization']['org_name'] }}" name="invite[{{$key}}][organization]" class=" organization person-form__field person_orgs input--text" >
                                   </label>
                                   @if(auth()->user()->id != $user['id'] )
                                   <div class="person-form-bulk__attribute person-form-bulk__attribute--remove">
@@ -86,22 +86,23 @@
                         $key = isset($inviteUsers) ? count($inviteUsers) : 0; 
                     ?>
 
+                    {{--
                     <div class="person-form-bulk__person clone-html" data-role="existing_user_row" data-user-id="4781518" data-persisted="">
-                        <input type="hidden"  name="invite[{{$key}}][id]" id="" value="" class="person-form__field input--text" >
+                        <input type="hidden"  name="invite[{{$key}}][id]" id="" value="" class="id person-form__field input--text" >
                         <label class="person-form-bulk__attribute">
-                            <input type="text" name="invite[{{$key}}][name]" id="" value="" class="person-form__field input--text" >
+                            <input type="text" name="invite[{{$key}}][name]"  id="" value="" class="name person-form__field input--text" >
                         </label>
 
                           <label class="person-form-bulk__attribute">
-                            <input type="email" id="" name="invite[{{$key}}][email]" value="" class="person-form__field input--text" pattern="^\S+@\S+\.[A-Za-z0-9-]{2,23}$">
+                            <input type="email" id="" name="invite[{{$key}}][email]" value="" class="email person-form__field input--text" pattern="^\S+@\S+\.[A-Za-z0-9-]{2,23}$">
                           </label>
 
                           <label class="person-form-bulk__attribute">
-                            <input type="text" id="" value="" name="invite[{{$key}}][title]" class="person-form__field input--text">
+                            <input type="text" id="" value="" name="invite[{{$key}}][title]" class=" title person-form__field input--text">
                           </label>
 
                           <label  class="person-form-bulk__attribute person-form-bulk__attribute--company">
-                            <input  type="text"  id="" value="" name="invite[{{$key}}][organization]" class="person-form__field  person_orgs input--text">
+                            <input  type="text"  id="" value="" name="invite[{{$key}}][organization]" class="organization person-form__field  person_orgs input--text">
                           </label>
 
                           <div class="person-form-bulk__attribute person-form-bulk__attribute--remove">
@@ -109,7 +110,7 @@
                                 <span class="emoji" style="font-size: 0.8rem;">❌</span> 
                             </span>
                           </div>
-                    </div>
+                    </div>--}}
                 </div>
 
 

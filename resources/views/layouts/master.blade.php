@@ -99,7 +99,13 @@
             <!-- End Section main-content -->
             {{-- End Content Section --}}
 
-            {{-- Footer --}}
+
+
+
+        </div>
+        <!-- End Page Wrapper -->
+
+        {{-- Footer --}}
             <!-- Footer -->
             <footer id="footer">
                 <div class="container">
@@ -109,11 +115,7 @@
                 </div>
             </footer>
             <!-- End Footer -->
-            {{-- End Footer --}}
-
-
-        </div>
-        <!-- End Page Wrapper -->
+        {{-- End Footer --}}
 
         {{-- Footer Assets Section --}}
          @section('footerAssets')

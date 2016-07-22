@@ -75,8 +75,12 @@
             <!-- End Section main-content -->
             {{-- End Content Section --}}
 
-            {{-- Footer --}}
-            <!-- Footer -->
+            
+
+        </div>
+        <!-- End Page Wrapper -->
+        {{-- Footer --}}
+                    <!-- Footer -->
             <footer id="footer">
                 <div class="container">
                     <div class="row">
@@ -86,8 +90,7 @@
             </footer>
             <!-- End Footer -->
             {{-- End Footer --}}
-        </div>
-        <!-- End Page Wrapper -->
+            
 
         {{-- Footer Assets Section --}}
          @section('footerAssets')

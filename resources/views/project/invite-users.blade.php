@@ -110,7 +110,8 @@
                                 <span class="emoji" style="font-size: 0.8rem;">❌</span> 
                             </span>
                           </div>
-                    </div>--}}
+                    </div>
+                    --}}
                 </div>
 
 

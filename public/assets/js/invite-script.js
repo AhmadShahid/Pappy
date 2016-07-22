@@ -13,10 +13,10 @@ var InviteUser = InviteUser||{};
 	},
 	Inviteuser.initilizePlugin = function() { 
 
-            var countries = $(".select-org").data('suggestion');
+            var org = $(".select-org").data('suggestion');
 
 			$('.person_orgs').autocomplete({
-			    lookup: countries,
+			    lookup: org,
 			    onSelect: function (suggestion) {
 			        $(this).val(suggestion.value);
 			    }
@@ -36,10 +36,10 @@ var InviteUser = InviteUser||{};
 			$(clone_html).find('.title').attr('name','invite['+length+'][title]').attr('value','').removeAttr('readonly');
 			$(clone_html).find('.organization').attr('name','invite['+length+'][organization]').attr('value','').removeAttr('readonly');
 			setting.append_to.append(clone_html);
+			Inviteuser.initilizePlugin();
 		});
 
 		$(document).on('click','.emoji',function(e) {
-			debugger;
 			var $selector = $("#remove_user");
 			var prev_value = $selector.val();
 			var current_delted_user = $(this).attr('user-id');

@@ -32,4 +32,9 @@ class OrganizationController extends BaseController
         $this->_organization_service = $organizationService;
     }
 
+
+    public function getOrgUsers(Request $request) {
+        return $request->all();
+    }
+
 }

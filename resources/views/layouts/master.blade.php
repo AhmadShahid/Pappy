@@ -25,12 +25,23 @@
             {!! HTML::style('assets/css/typography.css') !!}
             {!! HTML::style('assets/css/style.css') !!}
             {!! HTML::style('assets/css/style-personal.css') !!}
+            {!! HTML::style('assets/css/jquery.auto-complete.css') !!}
                 <!-- Responsive -->
             <link rel="stylesheet" type="text/css" media="(max-width:768px)" href="{{asset('assets/css/responsive-0.css')}}">
             <link rel="stylesheet" type="text/css" media="(min-width:769px) and (max-width:992px)" href="{{asset('assets/css/responsive-768.css')}}">
             <link rel="stylesheet" type="text/css" media="(min-width:993px) and (max-width:1200px)" href="{{asset('assets/css/responsive-992.css')}}">
             <link rel="stylesheet" type="text/css" media="(min-width:1201px)" href="{{asset('assets/css/responsive-1200.css')}}">
             <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300,300italic,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+            <style type="text/css">
+                .autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+                .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+                .autocomplete-no-suggestion { padding: 2px 5px;}
+                .autocomplete-selected { background: #F0F0F0; }
+                .autocomplete-suggestions strong { font-weight: bold; color: #000; }
+                .autocomplete-group { padding: 2px 5px; }
+                .autocomplete-group strong { font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+   
+            </style>
 
         @show
 
@@ -113,6 +124,7 @@
             {!! HTML::script('assets/js/magnific.min.js') !!}
             {!! HTML::script('assets/js/fitvids.min.js') !!}
             {!! HTML::script('assets/js/viewportchecker.min.js') !!}
+            {!! HTML::script('assets/js/jquery.autocomplete.js') !!}
             {!! HTML::script('assets/js/init.js') !!}
          @show
         {{-- Footer Assets Section --}}

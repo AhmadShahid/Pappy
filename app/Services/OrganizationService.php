@@ -42,4 +42,11 @@ class OrganizationService
         return $org->pluck( 'org_name','id' );
     }
 
+
+    public function getOrgForAutoComplete()
+    {
+        $org = new Organization();
+        return $org->pluck( 'org_name' );
+    }
+
 }

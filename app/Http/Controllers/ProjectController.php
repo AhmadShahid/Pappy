@@ -135,7 +135,8 @@ class ProjectController extends BaseController
 
         $orgService = new OrganizationService();
         $orgs = $orgService->getOrgForDropDown(); 
-        return view('project.invite-users',compact('project','orgs','inviteUsers'));
+        $autoOrgs = $orgService->getOrgForAutoComplete();
+        return view('project.invite-users',compact('project','orgs','inviteUsers','autoOrgs'));
     }
 
     /**
@@ -147,7 +148,7 @@ class ProjectController extends BaseController
     public function sendInvitationToUsers( ProjectInvitationRequest $request ){
         ini_set('xdebug.max_nesting_level', 500);
         //$this->dispatch(new SendInvitationEmail($request));
-        $this->dispatch(new SendInvitationEmail($request->only('invite','project_id')));
+        $this->dispatch(new SendInvitationEmail($request->only('invite','project_id','remove_user')));
         return "done";
         return view('project.invite-users',compact('project'));
     }

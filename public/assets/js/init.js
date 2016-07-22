@@ -42,7 +42,7 @@
     $(document).ready(function(){
 
         // Sticky menu
-        $("#header_main.sticky", "#header").wrap("<div class='header_main-parent'></div>").attr("rel", $("#header_main.sticky", "#header").offset().top).parent().height($("#header_main.sticky", "#header").height());
+        //$("#header_main.sticky", "#header").wrap("<div class='header_main-parent'></div>").attr("rel", $("#header_main.sticky", "#header").offset().top).parent().height($("#header_main.sticky", "#header").height());
 
         // Responsive top navigation
         $(".top_navigation_toggle", "#header").on( "click", function() {
@@ -89,30 +89,6 @@
             classToAdd: 'visible animated',
             classToRemove: 'hidden', 
             offset: 0
-        });
-
-        // Content slider
-        $(".content_slider ul", "#wrapper").bxSlider({
-            adaptiveHeight: true,
-            mode: "horizontal",
-            auto: true,
-            controls: true,
-            pager: false,
-            captions: false,
-            prevText: "&#xf053;",
-            nextText: "&#xf054;"
-        });
-
-        // Wide slider
-        $(".wide_slider ul", "#wrapper").bxSlider({
-            adaptiveHeight: true,
-            mode: "fade",
-            auto: true,
-            controls: true,
-            captions: false,
-            prevText: "&#xf053;",
-            nextText: "&#xf054;",
-            pagerCustom: "#wide_slider_pager"
         });
 
         // Popup images

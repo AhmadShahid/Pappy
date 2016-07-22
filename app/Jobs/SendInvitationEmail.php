@@ -11,6 +11,9 @@ use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Services\ProjectService;
+use App\Services\UserService;
+
 
 class SendInvitationEmail extends Job implements ShouldQueue
 {
@@ -37,8 +40,22 @@ class SendInvitationEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        $userService = new UserService();
         $requestObj = $this->request;
         $request = $requestObj['invite'];
+        $request = array_where($request, function ($key, $value) {
+            return empty( $value['id'] );
+        });
+        
+        $projectId = $requestObj['project_id'];
+        $remove_user_id = $requestObj['remove_user'];
+        $deleted_user_ids = explode(',', $remove_user_id);
+        foreach ($deleted_user_ids as $key => $value) {
+            $userService->deleteUserByID( $value );
+        }
+
+        //$projectService = new ProjectService();
+        //$project = $projectService->findProjectByID($projectId);
 
         foreach ($request as $key => $records) {
             $records['token'] =  $this->generateToken();
@@ -51,6 +68,7 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $user->activation_token = $records['token'];
             $user->designation = $records['title'];
             $org->users()->save($user);
+            $user->projects()->sync([$projectId => ['is_joined' => true]]);
             $records['id'] = $user->id;
             $records["loggin_username"] = auth()->user()->name;
             $user = User::findOrFail(1);

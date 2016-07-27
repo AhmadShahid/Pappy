@@ -22,7 +22,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($project_id=null)
     {
         return view('dashboard.index');
     }

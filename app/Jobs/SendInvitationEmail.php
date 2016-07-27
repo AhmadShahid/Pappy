@@ -73,6 +73,7 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $records['id'] = $user->id;
             $records["loggin_username"] = auth()->user()->name;
             $records["basecamp"] = $project->title;
+            $records["basecamp_id"] = $project->id;
             $user = User::findOrFail(1);
 
             Mail::Queue('auth.emails.send_invitation', ['records' => $records], function ($m) use ($records) {

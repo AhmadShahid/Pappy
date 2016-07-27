@@ -6,7 +6,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="{{route('projects.index')}}" ><i class="fa fa-dashboard fa-fw"></i>Project</a>
+                <a href="{{route('schedule.index')}}" ><i class="fa fa-dashboard fa-fw"></i>Schedule</a>
             </li>
         </ul>
     </div>

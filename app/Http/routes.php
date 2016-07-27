@@ -21,11 +21,13 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => array('auth')], function () {
     // All my routes that needs a logged in user
-    Route::get('/dashboard', array('as'=>'dashboard', 'uses'=>'DashboardController@index'));
+    Route::get('dashboard/{project_id?}', array('as'=>'dashboard', 'uses'=>'DashboardController@index'));
 
 	Route::resource('projects', 'ProjectController');
 
-	Route::get('invite-users/{project_id}',array('as'=>'invite_users','uses'=>'ProjectController@showInvitationScreen'));
+	Route::resource('schedules', 'ScheduleController');
+
+	Route::get('invite-users/{project_id?}',array('as'=>'invite_users','uses'=>'ProjectController@showInvitationScreen'));
 	
 	Route::get('organization-user/{project_id?}',array('as'=>'org_users','uses'=>'OrganizationController@getOrgUsers'));
 

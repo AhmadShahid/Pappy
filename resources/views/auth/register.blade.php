@@ -23,6 +23,7 @@
 
                 {!! csrf_field() !!}
                 <input type="hidden" name="id" value="{{$user->id}}">
+                <input type="hidden" name="project_id" value="{{$project_id}}">
                 <section>
 
                     <div class="session-fields__attribute">

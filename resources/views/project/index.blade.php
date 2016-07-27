@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.project-master-layout')
 
 @section('content')
 	<div class="row">

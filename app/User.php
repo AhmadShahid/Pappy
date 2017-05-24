@@ -26,8 +26,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+	
     /**
-     * The users that belong to the Projects.
+     * The users that belong to the User  Projects.
      */
     public function projects()
     {

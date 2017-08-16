@@ -101,7 +101,7 @@ return [
         'invite.*.email' => [
             'required' => 'Make sure you’ve provided a email for all new people.',
         ],
-        
+
         'invite.*.organization' => [
             'required' => 'Make sure you’ve provided a organization for all new people.',
         ],

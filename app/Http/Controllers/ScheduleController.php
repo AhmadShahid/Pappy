@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Contracts\ProjectListener;
 use App\Services\ScheduleService;
-use App\Services\OrganizationService;
-use Illuminate\Support\MessageBag;
-use Session;
+use Illuminate\Http\Request;
 
 class ScheduleController extends BaseController
 {
-
     /*
     |--------------------------------------------------------------------------
     | Schedule Controller
@@ -21,18 +14,15 @@ class ScheduleController extends BaseController
     |--------------------------------------------------------------------------
     */
 
-
     private $_schedule;
     private $_schedule_service;
 
-    public function __construct(Schedule $schedule , ScheduleService $scheduleService)
+    public function __construct(Schedule $schedule, ScheduleService $scheduleService)
     {
-        
         $this->_schedule = $schedule;
         $this->_schedule_service = $scheduleService;
     }
 
-    
     /**
      * Display a listing of the resource.
      *
@@ -40,8 +30,9 @@ class ScheduleController extends BaseController
      */
     public function index()
     {
-        $schedules = $this->_schedule_service->showAllSchedules( $params=[] );
-        return view('schedules.index',compact('schedules'));
+        $schedules = $this->_schedule_service->showAllSchedules($params = []);
+
+        return view('schedules.index', compact('schedules'));
     }
 
     /**
@@ -57,7 +48,8 @@ class ScheduleController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -68,7 +60,8 @@ class ScheduleController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -79,7 +72,8 @@ class ScheduleController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -90,8 +84,9 @@ class ScheduleController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -102,7 +97,8 @@ class ScheduleController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

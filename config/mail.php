@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => "shahidahmad527@gmail.com", 'name' => null],
+    'from' => ['address' => 'shahidahmad527@gmail.com', 'name' => null],
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'username' => "shahidahmad527@gmail.com",
+    'username' => 'shahidahmad527@gmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => "TelenorJAZZ9281228",
+    'password' => 'TelenorJAZZ9281228',
 
     /*
     |--------------------------------------------------------------------------

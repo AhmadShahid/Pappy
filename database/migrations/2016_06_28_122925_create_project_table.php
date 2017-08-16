@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProjectTable extends Migration
 {
@@ -12,16 +12,14 @@ class CreateProjectTable extends Migration
      */
     public function up()
     {
-
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title',250);
+            $table->string('title', 250);
             $table->text('description')->nullable();
             //$table->enum('choices', ['', 'bar']);
             $table->timestamps();
             $table->softDeletes();
         });
-
     }
 
     /**

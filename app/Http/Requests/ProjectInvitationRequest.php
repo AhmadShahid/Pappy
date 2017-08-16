@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 class ProjectInvitationRequest extends Request
 {
     /**
@@ -24,9 +22,9 @@ class ProjectInvitationRequest extends Request
     public function rules()
     {
         return [
-            'invite.*.email'=>'required|email',
-            'invite.*.name'=>'required',
-            'invite.*.organization'=>'required',
+            'invite.*.email'       => 'required|email',
+            'invite.*.name'        => 'required',
+            'invite.*.organization'=> 'required',
         ];
     }
 }

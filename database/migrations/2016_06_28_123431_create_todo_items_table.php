@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTodoItemsTable extends Migration
 {
@@ -14,7 +14,7 @@ class CreateTodoItemsTable extends Migration
     {
         Schema::create('todo_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',250);
+            $table->string('name', 250);
             $table->text('description')->nullable();
             $table->integer('schedule_id')->unsigned();
             $table->integer('project_id')->unsigned();

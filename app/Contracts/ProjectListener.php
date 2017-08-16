@@ -2,13 +2,11 @@
 
 namespace App\Contracts;
 
-use App\Models\Project;
 use Illuminate\Support\MessageBag;
 
-interface ProjectListener {
+interface ProjectListener
+{
+    public function projectCreationFails(MessageBag $errors);
 
-	public function projectCreationFails( MessageBag $errors );
-
-	public function projectCreationSucceeds( $url );
-
+    public function projectCreationSucceeds($url);
 }

@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
-
 class DashboardController extends Controller
 {
     /**
@@ -22,7 +19,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($project_id=null)
+    public function index($project_id = null)
     {
         return view('dashboard.index');
     }

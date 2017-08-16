@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Project;
 use App\Models\Organization;
+use App\Models\Project;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -26,7 +26,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-	
     /**
      * The users that belong to the User  Projects.
      */

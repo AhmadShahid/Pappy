@@ -2,26 +2,23 @@
 
 namespace App\Jobs;
 
-use Illuminate\Http\Request;
-use Mail;
-use Auth;
-use App\User;
 use App\Models\Organization;
 use App\Models\Project;
-use App\Jobs\Job;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Services\ProjectService;
 use App\Services\UserService;
-
+use App\User;
+use Auth;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Mail;
 
 class SendInvitationEmail extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
-     protected $user;
-     protected $request;
+    protected $user;
+    protected $request;
 
     /**
      * Create a new job instance.
@@ -45,21 +42,21 @@ class SendInvitationEmail extends Job implements ShouldQueue
         $requestObj = $this->request;
         $request = $requestObj['invite'];
         $request = array_where($request, function ($key, $value) {
-            return empty( $value['id'] );
+            return empty($value['id']);
         });
-        
+
         $projectId = $requestObj['project_id'];
         $remove_user_id = $requestObj['remove_user'];
         $deleted_user_ids = explode(',', $remove_user_id);
         foreach ($deleted_user_ids as $key => $value) {
-            $userService->deleteUserByID( $value );
+            $userService->deleteUserByID($value);
         }
 
-        $projectService = new ProjectService( new Project() );
+        $projectService = new ProjectService(new Project());
         $project = $projectService->findProjectByID($projectId);
 
         foreach ($request as $key => $records) {
-            $records['token'] =  $this->generateToken();
+            $records['token'] = $this->generateToken();
             $org = new Organization();
             $org->org_name = $records['organization'];
             $org->save();
@@ -71,9 +68,9 @@ class SendInvitationEmail extends Job implements ShouldQueue
             $org->users()->save($user);
             $user->projects()->sync([$projectId => ['is_joined' => true]]);
             $records['id'] = $user->id;
-            $records["loggin_username"] = auth()->user()->name;
-            $records["basecamp"] = $project->title;
-            $records["basecamp_id"] = $project->id;
+            $records['loggin_username'] = auth()->user()->name;
+            $records['basecamp'] = $project->title;
+            $records['basecamp_id'] = $project->id;
             $user = User::findOrFail(1);
 
             Mail::Queue('auth.emails.send_invitation', ['records' => $records], function ($m) use ($records) {
@@ -84,9 +81,10 @@ class SendInvitationEmail extends Job implements ShouldQueue
         }
     }
 
-
-    private function generateToken(){
+    private function generateToken()
+    {
         $length = 78;
+
         return $token = bin2hex(random_bytes($length));
     }
 }

@@ -2,53 +2,44 @@
 
 namespace App\Services;
 
-use App\Models\Project;
 use App\Contracts\ProjectListener;
+use App\Models\Project;
 
 class ProjectService
 {
     private $_project;
 
-    public function __construct( Project $project )
+    public function __construct(Project $project)
     {
-        
         $this->_project = $project;
     }
 
-    public function store( $inputs , ProjectListener $listener,$id = '' )
+    public function store($inputs, ProjectListener $listener, $id = '')
     {
         try {
-            if( isset($id) && !empty( $id ) ) {
-
-                $findProjectObj = $this->findProjectByID( $id );
-                $findProjectObj->update( $inputs );
-            
+            if (isset($id) && !empty($id)) {
+                $findProjectObj = $this->findProjectByID($id);
+                $findProjectObj->update($inputs);
             } else {
-
-                $this->_project->create( $inputs );    
+                $this->_project->create($inputs);
             }
-            
 
-            return $listener->projectCreationSucceeds( 'projects.index' );
-
-        } catch(\Exception $e) {
-
+            return $listener->projectCreationSucceeds('projects.index');
+        } catch (\Exception $e) {
             $messagebag = new \Illuminate\Support\MessageBag();
-            $messagebag->add( 'error',$e->getMessage() );
+            $messagebag->add('error', $e->getMessage());
 
-            return $listener->projectCreationFails( $messagebag );
+            return $listener->projectCreationFails($messagebag);
         }
-        
     }
 
-    public function findProjectByID( $id ) {
-
-        return $this->_project->find( $id );
+    public function findProjectByID($id)
+    {
+        return $this->_project->find($id);
     }
 
-    public function findProjectByIDWithUsers( $id ) {
-
-        return $this->_project->with('users','users.organization')->find( $id );
-    } 
-
+    public function findProjectByIDWithUsers($id)
+    {
+        return $this->_project->with('users', 'users.organization')->find($id);
+    }
 }

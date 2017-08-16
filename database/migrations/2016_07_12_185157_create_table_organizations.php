@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTableOrganizations extends Migration
 {
@@ -12,14 +12,12 @@ class CreateTableOrganizations extends Migration
      */
     public function up()
     {
-        
         Schema::create('organizations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('org_name',250);
+            $table->string('org_name', 250);
             $table->timestamps();
             $table->softDeletes();
         });
-        
     }
 
     /**

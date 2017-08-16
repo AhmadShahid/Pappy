@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateFileStoragesTable extends Migration
 {
@@ -14,9 +14,9 @@ class CreateFileStoragesTable extends Migration
     {
         Schema::create('file_storages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('file_name',250);
-            $table->string('file_path',250);
-            $table->string('file_extension',250);
+            $table->string('file_name', 250);
+            $table->string('file_path', 250);
+            $table->string('file_extension', 250);
             $table->integer('project_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

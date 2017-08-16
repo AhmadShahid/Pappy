@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 
 class Organization extends BaseModel
 {
-    
-	/**
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -24,21 +23,21 @@ class Organization extends BaseModel
     }
 
     /**
-     * Show List of all the client 
+     * Show List of all the client.
+     *
      * @param array
+     *
      * @return array of clients
-    */
+     */
+    public function showAllOrganizations($params)
+    {
+        $results = $this;
 
-    public function showAllOrganizations( $params ){
-
-        $results = $this; 
-
-        if( isset( $params['Search'] ) && !empty( $params['Search'] ) ) {
-            
+        if (isset($params['Search']) && !empty($params['Search'])) {
         }
 
-        $toTake = config('setting.pagination');  
+        $toTake = config('setting.pagination');
 
-        return $results->paginate( $toTake );
+        return $results->paginate($toTake);
     }
 }

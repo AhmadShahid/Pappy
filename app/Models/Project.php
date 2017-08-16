@@ -7,14 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends BaseModel
 {
-    
-	/**
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'projects';
-
 
     /**
      * The projects that belong to the users.
@@ -25,22 +23,21 @@ class Project extends BaseModel
     }
 
     /**
-     * Show List of all the client 
+     * Show List of all the client.
+     *
      * @param array
+     *
      * @return array of clients
-    */
-
-    public function showAllProjects( $params )
+     */
+    public function showAllProjects($params)
     {
+        $results = $this;
 
-        $results = $this; 
-
-        if( isset( $params['Search'] ) && !empty( $params['Search'] ) ) {
-            
+        if (isset($params['Search']) && !empty($params['Search'])) {
         }
 
-        $toTake = config('setting.pagination');  
+        $toTake = config('setting.pagination');
 
-        return $results->paginate( $toTake );
+        return $results->paginate($toTake);
     }
 }
